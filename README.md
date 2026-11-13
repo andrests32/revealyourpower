@@ -81,12 +81,10 @@ Para ajustar el ritmo de la cuenta, edita `src/lib/animations/intro.ts`. Las dem
 
 Commit **`934dba0`**: `chore: snapshot landing before requested visual and accessibility updates`.
 
-La sesión de edición no tiene acceso a los metadatos originales de `.git`. Por eso el respaldo se guardó en un repositorio local independiente, `.local-history.git`, antes de instalar dependencias o modificar la landing. No reemplaza el historial del repositorio original.
+Al crear este respaldo, la sesión de edición no tenía acceso a los metadatos originales de `.git`. Por eso el respaldo se guardó en un repositorio local independiente, `.local-history.git`, antes de instalar dependencias o modificar la landing. No reemplaza el historial del repositorio original.
 
 ```sh
 git --git-dir=.local-history.git --work-tree=. show --stat 934dba0
 git --git-dir=.local-history.git --work-tree=. diff 934dba0
 ```
-# revealyourpower
-# revealyourpower
 # revealyourpower
