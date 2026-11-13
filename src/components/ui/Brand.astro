@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import symbol from '../../assets/images/only-logo.png';
+interface Props {
+  symbolOnly?: boolean;
+}
+const { symbolOnly = false } = Astro.props;
+---
+
+<a
+  class="inline-flex shrink-0 items-center gap-4"
+  href="#inicio"
+  aria-label="Reveal Your Power — Inicio"
+>
+  <Image
+    src={symbol}
+    alt=""
+    width={244}
+    format="webp"
+    class="h-auto w-28 object-contain md:w-32"
+    loading="eager"
+  />
+  {!symbolOnly && (
+    <span class="text-base leading-snug font-semibold tracking-[0.08em]">
+      REVEAL
+      <br />
+      YOUR POWER
+    </span>
+  )}
+</a>

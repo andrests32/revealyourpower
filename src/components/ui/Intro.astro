@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import symbol from '../../assets/images/only-logo.png';
+---
+
+<div
+  class="intro pointer-events-none fixed inset-0 z-70 flex flex-col items-center justify-center gap-8 bg-dark px-6 text-center text-light"
+  aria-hidden="true"
+  hidden
+>
+  <Image
+    src={symbol}
+    alt=""
+    width={440}
+    format="webp"
+    class="intro-symbol h-auto w-40 sm:w-52"
+    loading="eager"
+  />
+  <div class="intro-count relative h-44 w-44 font-editorial text-[10rem] leading-none text-primary">
+    <span class="absolute inset-0 grid place-items-center opacity-0">3</span>
+    <span class="absolute inset-0 grid place-items-center opacity-0">2</span>
+    <span class="absolute inset-0 grid place-items-center opacity-0">1</span>
+  </div>
+  <div class="intro-brand text-xl leading-relaxed tracking-[0.15em] sm:text-2xl">
+    REVEAL YOUR POWER
+  </div>
+  <span class="max-w-md text-base leading-relaxed tracking-[0.08em] text-primary">
+    UNA NUEVA FORMA DE ACOMPAÑAR
+  </span>
+</div>

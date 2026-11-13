@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import symbol from '../../assets/images/only-logo.png';
+import WhatsAppLink from '../ui/WhatsAppLink.astro';
+---
+
+<section
+  class="contact relative overflow-clip bg-soft-mint py-20 text-center md:py-24"
+  id="contacto"
+  aria-labelledby="contact-title"
+>
+  <div
+    class="contact-orbit absolute top-1/2 -left-[340px] size-[630px] -translate-y-1/2 rounded-full border border-deep-green/15"
+    aria-hidden="true"
+  ></div>
+  <div
+    class="contact-orbit absolute top-1/2 -right-[340px] size-[630px] -translate-y-1/2 rounded-full border border-deep-green/15"
+    aria-hidden="true"
+  ></div>
+  <div class="page-width relative z-1" data-reveal>
+    <Image
+      src={symbol}
+      alt=""
+      width={320}
+      format="webp"
+      class="contact-symbol mx-auto mb-7 h-auto w-40"
+      loading="lazy"
+    />
+    <p class="eyebrow text-deep-green">UNA NUEVA PERSPECTIVA TE ESPERA</p>
+    <h2 id="contact-title" class="display-title my-9">
+      El siguiente paso comienza
+      <br class="hidden md:block" />
+      <em> con una conversación.</em>
+    </h2>
+    <div class="[&_.contact-action]:items-center">
+      <WhatsAppLink label="Hablar por WhatsApp" variant="dark" />
+    </div>
+    <span class="mt-12 block text-base tracking-[0.15em] text-deep-green">REVEAL YOUR POWER</span>
+  </div>
+</section>

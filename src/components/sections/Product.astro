@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import kit from '../../assets/images/product-kit.png';
+import SectionLabel from '../ui/SectionLabel.astro';
+import WhatsAppLink from '../ui/WhatsAppLink.astro';
+---
+
+<section id="herramienta" class="section-space" aria-labelledby="product-title">
+  <div class="page-width">
+    <div class="flex items-center justify-between gap-6">
+      <SectionLabel number="02" label="LA HERRAMIENTA" />
+      <span class="tiny-label hidden text-muted lg:block">DISEÑADA PARA CONECTAR</span>
+    </div>
+    <div
+      class="mt-9 flex flex-col gap-6 lg:mt-11 lg:flex-row lg:items-end lg:justify-between lg:gap-12"
+      data-reveal
+    >
+      <h2 id="product-title" class="display-title">
+        Cada carta abre
+        <br />
+        <em>una conversación.</em>
+      </h2>
+      <p class="max-w-md text-body text-muted lg:max-w-sm">
+        Una experiencia visual y práctica que invita a explorar ideas, preguntas y nuevas
+        perspectivas.
+      </p>
+    </div>
+    <figure class="product-figure mt-10 md:mt-14" data-reveal>
+      <div class="overflow-hidden rounded-lg bg-[#dbe6dc]">
+        <Image
+          src={kit}
+          alt="Presentación del kit Reveal Your Power: estuche verde, cartas con la identidad impresa y manual Practitioner."
+          widths={[480, 768, 1024, 1280, 1536]}
+          sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1400px) calc(100vw - 96px), 1280px"
+          format="webp"
+          quality={85}
+          loading="lazy"
+          class="product-image block h-auto w-full"
+        />
+      </div>
+      <figcaption class="flex flex-wrap justify-between gap-2 border-b border-line py-5 text-base leading-relaxed text-muted">
+        <span class="tracking-[0.06em]">REVEAL YOUR POWER — EL KIT</span>
+        <span>Imagen promocional del producto.</span>
+      </figcaption>
+    </figure>
+    <div class="mt-8 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+      <p class="max-w-xl text-body">
+        Cartas visuales, conceptos, preguntas y material de apoyo. Una misma experiencia.
+      </p>
+      <WhatsAppLink label="Conocer la herramienta" interest="tool" variant="outline" />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+import MethodCard from './MethodCard.astro';
+const cards = [
+  {
+    variant: 'green',
+    position:
+      'left-[21%] top-[35%] w-[150px] sm:w-[185px] xl:left-[8%] xl:top-[26%] xl:w-[170px] 2xl:w-[210px]',
+    rotation: -19,
+  },
+  {
+    variant: 'mint',
+    position:
+      'left-[77%] top-[26%] w-[135px] sm:w-[170px] xl:left-[91%] xl:top-[17%] xl:w-[160px] 2xl:w-[190px]',
+    rotation: 17,
+  },
+  {
+    variant: 'photo',
+    position:
+      'left-[55%] top-[65%] w-[185px] sm:w-[235px] xl:left-[11%] xl:top-[73%] xl:w-[235px] 2xl:w-[265px]',
+    rotation: 12,
+  },
+  {
+    variant: 'green',
+    position: 'hidden xl:block xl:left-[91%] xl:top-[69%] xl:w-[230px] 2xl:w-[265px]',
+    rotation: -12,
+  },
+  {
+    variant: 'mint',
+    position: 'hidden xl:block xl:left-[66%] xl:top-[91%] xl:w-[140px]',
+    rotation: 14,
+  },
+] as const;
+---
+
+<div
+  class="card-orbit pointer-events-none relative order-2 h-[290px] w-full perspective-[1200px] sm:h-[350px] xl:absolute xl:inset-0 xl:h-auto"
+  aria-hidden="true"
+>
+  <div class="absolute top-1/2 left-1/2 h-[300px] w-[650px] -translate-1/2 -rotate-12 rounded-[50%] border border-deep-green/10 xl:h-[650px] xl:w-[1150px]"></div>
+  <div class="absolute top-1/2 left-1/2 h-[380px] w-[750px] -translate-1/2 rotate-12 rounded-[50%] border border-deep-green/5 xl:h-[750px] xl:w-[1380px]"></div>
+  {cards.map((card) => (
+    <div class:list={['card-position absolute -translate-1/2', card.position]}>
+      <div class="card-parallax transform-3d">
+        <div class="card-entry transform-3d">
+          <div class="card-float transform-3d">
+            <div
+              class="rotate-(--card-angle) transform-3d"
+              style={`--card-angle: ${card.rotation}deg`}
+            >
+              <MethodCard variant={card.variant} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

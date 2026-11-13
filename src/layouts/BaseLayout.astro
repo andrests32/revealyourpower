@@ -1,0 +1,59 @@
+---
+import { getImage } from 'astro:assets';
+import kit from '../assets/images/product-kit.png';
+import { site } from '../data/site';
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Intro from '../components/ui/Intro.astro';
+import manropeFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
+import editorialFont from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
+
+const socialImage = await getImage({ src: kit, width: 1200, format: 'jpg', quality: 85 });
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const imageUrl = Astro.site ? new URL(socialImage.src, Astro.site).href : socialImage.src;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={site.description} />
+    <meta name="theme-color" content="#F7FAF8" />
+    <title>{site.title}</title>
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href={manropeFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={editorialFont} as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content="Kit Reveal Your Power y manual Practitioner" />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.title} />
+    <meta name="twitter:description" content={site.description} />
+    <meta name="twitter:image" content={imageUrl} />
+  </head>
+  <body>
+    <a href="#contenido" class="skip-link">
+      Saltar al contenido
+    </a>
+    <Intro />
+    <Header />
+    <main id="contenido" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import { initExperience } from '../lib/animations';
+      initExperience();
+    </script>
+  </body>
+</html>

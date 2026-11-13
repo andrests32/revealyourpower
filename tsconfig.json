@@ -1,0 +1,6 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules", ".pnpm-store", ".pnpm-cache"],
+  "compilerOptions": { "noUncheckedIndexedAccess": true }
+}

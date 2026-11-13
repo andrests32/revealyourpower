@@ -1,0 +1,42 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Icon from '../ui/Icon.astro';
+import { professions } from '../../data/content';
+---
+
+<section class="section-space border-y border-line" aria-labelledby="audience-title">
+  <div class="page-width grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+    <div data-reveal>
+      <SectionLabel number="03" label="PENSADA PARA TI" />
+      <h2 id="audience-title" class="display-title mt-9 lg:mt-11">
+        Trabajas con
+        <br class="hidden lg:block" /> personas.
+        <br />
+        <em>Esto es para ti.</em>
+      </h2>
+      <p class="mt-7 text-body text-muted">
+        Distintas profesiones.
+        <br />
+        Una misma intención: acompañar mejor.
+      </p>
+    </div>
+    <div>
+      <ul class="list-none p-0" aria-label="Perfiles profesionales" data-stagger>
+        {professions.map((profession, index) => (
+          <li
+            class="group flex items-center gap-4 border-b border-line py-5 text-xl leading-snug tracking-tight sm:text-2xl"
+            data-stagger-item
+          >
+            <span class="w-7 shrink-0 text-base tracking-normal text-muted">0{index + 1}</span>
+            <span>{profession}</span>
+            <Icon name="arrow-up" class="ml-auto text-deep-green" />
+          </li>
+        ))}
+      </ul>
+      <p class="mt-7 max-w-lg text-body text-muted">
+        También para profesionales que acompañan a niños y adolescentes, y para quienes buscan
+        ampliar sus habilidades interpersonales.
+      </p>
+    </div>
+  </div>
+</section>

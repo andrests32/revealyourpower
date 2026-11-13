@@ -1,0 +1,42 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Icon from '../ui/Icon.astro';
+import { process } from '../../data/content';
+const icons = ['eye', 'conversation', 'accompany'] as const;
+---
+
+<section class="section-space" aria-labelledby="process-title">
+  <div class="page-width">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between" data-reveal>
+      <SectionLabel number="04" label="CÓMO SE VIVE" />
+      <h2 id="process-title" class="display-title lg:text-right">
+        Un punto de partida.
+        <br />
+        <em>Muchas posibilidades.</em>
+      </h2>
+    </div>
+    <ol
+      class="mt-12 grid list-none gap-12 p-0 md:mt-16 md:grid-cols-3 md:gap-8 lg:gap-12"
+      data-stagger
+    >
+      {process.map((step, index) => (
+        <li data-stagger-item>
+          <div class="flex items-end justify-between pb-7">
+            <span class="text-base text-muted">{step.number}</span>
+            <Icon name={icons[index]} size={56} class="step-icon text-deep-green" />
+          </div>
+          <div class="step-divider relative h-px origin-left bg-line">
+            <span class="absolute -top-0.5 left-0 size-1.5 rounded-full bg-deep-green"></span>
+          </div>
+          <h3 class="mt-7 font-editorial text-5xl font-normal tracking-tight">{step.title}</h3>
+          <p class="mt-4 text-body text-muted">{step.description}</p>
+          <span class="tiny-label mt-7 block">{step.detail}</span>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-12 border-t border-line pt-6 text-base leading-relaxed text-muted md:mt-16">
+      Una herramienta de acompañamiento y reflexión. No es un sistema de adivinación ni sustituye
+      una evaluación psicológica profesional.
+    </p>
+  </div>
+</section>

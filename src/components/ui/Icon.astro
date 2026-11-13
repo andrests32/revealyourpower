@@ -1,0 +1,53 @@
+---
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ArrowDown,
+  MessageCircle,
+  Pause,
+  Play,
+  Plus,
+  Menu,
+  X,
+  Eye,
+  MessagesSquare,
+  HandHeart,
+  Images,
+  Lightbulb,
+  CircleQuestionMark,
+  Minus,
+} from '@lucide/astro';
+
+const icons = {
+  arrow: ArrowRight,
+  'arrow-up': ArrowUpRight,
+  down: ArrowDown,
+  whatsapp: MessageCircle,
+  pause: Pause,
+  play: Play,
+  plus: Plus,
+  menu: Menu,
+  close: X,
+  eye: Eye,
+  conversation: MessagesSquare,
+  accompany: HandHeart,
+  images: Images,
+  idea: Lightbulb,
+  question: CircleQuestionMark,
+  minus: Minus,
+};
+interface Props {
+  name?: keyof typeof icons;
+  class?: string;
+  size?: number;
+}
+const { name = 'arrow', class: className = '', size = 24 } = Astro.props;
+const LucideIcon = icons[name];
+---
+
+<LucideIcon
+  size={size}
+  stroke-width={1.6}
+  class:list={['shrink-0', className]}
+  aria-hidden="true"
+/>

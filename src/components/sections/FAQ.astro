@@ -1,0 +1,39 @@
+---
+import SectionLabel from '../ui/SectionLabel.astro';
+import Icon from '../ui/Icon.astro';
+import { faqs } from '../../data/content';
+---
+
+<section class="section-space" aria-labelledby="faq-title">
+  <div class="page-width grid gap-10 lg:grid-cols-[0.9fr_1.3fr] lg:gap-16">
+    <div data-reveal>
+      <SectionLabel number="06" label="PREGUNTAS FRECUENTES" />
+      <h2 id="faq-title" class="display-title mt-9">
+        Antes de
+        <br />
+        <em>dar el paso.</em>
+      </h2>
+      <p class="mt-6 text-body text-muted">
+        Algunas respuestas
+        <br />
+        para empezar con claridad.
+      </p>
+    </div>
+    <div>
+      {faqs.map((faq, index) => (
+        <details class="faq-item group border-b border-line first:border-t" name="faq" data-reveal>
+          <summary class="flex min-h-20 cursor-pointer list-none items-center gap-3 py-6 sm:gap-5">
+            <span class="shrink-0 text-base text-muted">0{index + 1}</span>
+            <h3 class="text-lg leading-relaxed font-semibold group-open:text-deep-green">
+              {faq.question}
+            </h3>
+            <Icon name="plus" class="faq-toggle ml-auto" />
+          </summary>
+          <div class="faq-answer pb-7 pl-8 sm:pl-10">
+            <p class="text-body text-muted">{faq.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

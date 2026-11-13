@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import symbol from '../../assets/images/only-logo.png';
+import kit from '../../assets/images/product-kit.png';
+interface Props {
+  variant?: 'green' | 'mint' | 'photo';
+  class?: string;
+}
+const { variant = 'green', class: className = '' } = Astro.props;
+---
+
+<div
+  class:list={[
+    'method-card relative aspect-[1.6] w-full overflow-hidden rounded-xl border shadow-[0_2px_1px_#15362c25,0_5px_0_-2px_#dde5df,0_7px_0_-3px_#b4c5ba,0_20px_32px_-17px_#16372c60] backface-hidden',
+    variant === 'mint' ? 'border-[#dae8d2] bg-[#d5e6cc]' : 'border-white/25 bg-[#136e52]',
+    className,
+  ]}
+>
+  {variant === 'photo' ? (
+    <div class="absolute inset-0 overflow-hidden bg-[#ded5c2]">
+      <Image
+        src={kit}
+        alt=""
+        width={1000}
+        format="webp"
+        class="absolute -top-[589%] -left-[137%] h-auto w-[700%] max-w-none"
+        loading="eager"
+      />
+    </div>
+  ) : (
+    <div class="absolute inset-2 flex items-center justify-center rounded-lg border border-white/20 p-4">
+      <Image
+        src={symbol}
+        alt=""
+        width={400}
+        format="webp"
+        class="h-auto w-full object-contain"
+        loading="eager"
+      />
+    </div>
+  )}
+</div>
